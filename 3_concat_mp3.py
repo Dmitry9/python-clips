@@ -12,6 +12,8 @@ def concat_mp3(input_dir, output_dir, silence_path):
      # Ensure all input directories exist
     if not os.path.exists(silence_path):
         raise ValueError(f"{silence_path} does not exist")
+    if not os.path.exists(input_dir):
+        raise ValueError(f"{input_dir} does not exist")
 
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
@@ -56,8 +58,8 @@ def main():
     
     # Input and output directories
     input_dir = os.path.join(base_dir, 'slow')
-    output_dir = os.path.join(base_dir, 'with_silence')
-    silience_dir = os.path.join(base_dir, 'silence.mp3')
+    output_dir = os.path.join(base_dir, 'with_silience')
+    silience_dir = os.path.join(base_dir, 'silience.mp3')
     
     # Convert files
     concat_mp3(input_dir, output_dir, silience_dir)

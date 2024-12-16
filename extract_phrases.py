@@ -98,7 +98,7 @@ def extract_phrases(mp4_dir, vtt_dir, output_base_dir):
 
 def main():
     # Base directories
-    base_dir = '/home/dmitry/repo/gravity-falls'
+    base_dir = os.getcwd()
     mp4_dir = os.path.join(base_dir, 'mp4')
     vtt_dir = os.path.join(base_dir, 'vtt')
     phrases_dir = os.path.join(base_dir, 'phrases')

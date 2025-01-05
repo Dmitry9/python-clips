@@ -5,7 +5,7 @@ def change_playback_speed(input_dir, output_dir, playback_speed=0.75):
     """
     Changes playback speed of MP3.
     
-    :param input_dir: Base directory containing episode folders with MP4 files
+    :param input_dir: Base directory containing episode folders with MP3 files
     :param output_dir: Base directory to save MP3 files
     :param playback_speed: (doble)
     """
@@ -24,7 +24,6 @@ def change_playback_speed(input_dir, output_dir, playback_speed=0.75):
         # Create output episode directory
         os.makedirs(episode_output_path, exist_ok=True)
         
-        # Process each MP4 file
         for audio_file in os.listdir(episode_input_path):
             if not audio_file.endswith('.mp3'):
                 continue
@@ -34,10 +33,10 @@ def change_playback_speed(input_dir, output_dir, playback_speed=0.75):
             output_path = os.path.join(episode_output_path, audio_file)
             
             try:
-                # Extract audio from MP4
                 subprocess.run([
                     'ffmpeg', 
                     '-i', input_path,
+                    '-vn', # Skip any video/image streams
                     '-af', f"atempo={playback_speed}",
                     output_path
                 ], check=True, capture_output=True)

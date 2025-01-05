@@ -42,3 +42,18 @@ ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 30 -q:a 9 -acodec libmp3lame sile
 ```bash
 python extract_phrases.py
 ```
+
+
+Creating a text file that lists all the MP3 files in the order you want them concatenated. This text file is then used as input for ffmpeg.
+```bash
+find ./with_silience -maxdepth 2 -name "*.mp3" -printf "file '%p'\n" > input.txt
+ffmpeg -f concat -safe 0 -i input.txt -c copy output.mp3
+```
+
+# Detect silience
+```bash
+sudo apt install mp3splt
+mp3splt -h
+cd ./audio
+mp3splt -s -p th=-50 03.mp3
+```

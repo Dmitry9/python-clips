@@ -4,7 +4,8 @@
   "description": "cd /mnt/c/Users/dmitr/Music/gravity-falls",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wip": "git add . && git commit -m 'wip' && git push"
   },
   "author": "",
   "license": "ISC",

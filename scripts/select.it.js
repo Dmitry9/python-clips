@@ -5,10 +5,11 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 
 const scriptPath = './scripts/select-it.sh';
+const bookFolder = '/mnt/c/Users/dmitr/Music/it';
 
 async function selectMp3() {
   try {
-    const mp3Files = fs.readdirSync('/mnt/c/Users/dmitr/Music/it', { withFileTypes: true })
+    const mp3Files = fs.readdirSync(bookFolder, { withFileTypes: true })
       .filter(dirent => dirent.isFile() && dirent.name.endsWith('.mp3'))
       .map(dirent => dirent.name.replace('.mp3', '')); 
 

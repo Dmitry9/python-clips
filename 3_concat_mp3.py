@@ -1,3 +1,4 @@
+import sys
 import os
 import subprocess
 
@@ -53,13 +54,18 @@ def concat_mp3(input_dir, output_dir, silence_path):
                 print(f"Error processing {input_path}: {e.stderr.decode()}")
 
 def main():
+    # Get optional silence file argument from command line
+    silence_file = 'silience.mp3'
+    if len(sys.argv) > 1:
+      silence_file = sys.argv[1]
+      
     # Current working directory
     base_dir = os.getcwd()
     
     # Input and output directories
     input_dir = os.path.join(base_dir, 'slow')
     output_dir = os.path.join(base_dir, 'with_silience')
-    silience_dir = os.path.join(base_dir, 'silience.mp3')
+    silience_dir = os.path.join(base_dir, silence_file)
     
     # Convert files
     concat_mp3(input_dir, output_dir, silience_dir)

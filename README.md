@@ -35,7 +35,7 @@ cl=mono specifies that the output should be in mono (single channel).
 silence.mp3: This is the name of the output file.
 
 ```bash
-ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 30 -q:a 9 -acodec libmp3lame silence.mp3
+ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 30 -q:a 9 -acodec libmp3lame silience.mp3
 ```
 
 # Run the script
@@ -56,6 +56,11 @@ ffmpeg -f concat -safe 0 -i input.txt -c copy output.mp3
 sudo apt install mp3splt
 mp3splt -h
 cd ./audio
-cd SOME_FOLDER
-mp3splt -s -p th=-50 NAME_OF_OUT_FILE.mp3
+cd subfolder
+mp3splt -s -p th=-50 4.mp3
+```
+
+## routine
+```bash
+node scripts/select.it.js
 ```
